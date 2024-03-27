@@ -1,0 +1,19 @@
+{
+  "name": "bun-topcode",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts",
+    "serve": "bun src/index.ts",
+    "deploy": "bun build ./src/index.ts --outDir ./build"
+  },
+  "dependencies": {
+    "@elysiajs/jwt": "^1.0.2",
+    "elysia": "latest",
+    "mongoose": "^8.2.3"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}

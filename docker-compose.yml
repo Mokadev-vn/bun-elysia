@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      MONGO_HOST: db-mongo
+      MONGO_PORT: 27017
+      MONGO_DB: app
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: 123123aB
+    depends_on:
+      - db-mongo
+  db-mongo:
+    image: mongo:latest
+    ports:
+      - "27017"
+    volumes:
+      - ./data:/data/db
+    # setup env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123123aB
+      
